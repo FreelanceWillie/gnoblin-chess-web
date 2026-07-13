@@ -533,7 +533,7 @@ const InternalConfig = function (initConfig) { // eslint-disable-line no-unused-
 			'printErr': this.onPrintError,
 			'thisProgram': this.executable,
 			'noExitRuntime': false,
-			'dynamicLibraries': [`${loadPath}.side.wasm?v=0bfcdd3`].concat(this.gdextensionLibs),
+			'dynamicLibraries': [`${loadPath}.side.wasm?v=797c6df`].concat(this.gdextensionLibs),
 			'emscriptenPoolSize': this.emscriptenPoolSize,
 			'instantiateWasm': function (imports, onSuccess) {
 				function done(result) {
@@ -553,17 +553,17 @@ const InternalConfig = function (initConfig) { // eslint-disable-line no-unused-
 				if (!path.startsWith('godot.')) {
 					return path;
 				} else if (path.endsWith('.audio.worklet.js')) {
-					return `${loadPath}.audio.worklet.js?v=0bfcdd3`;
+					return `${loadPath}.audio.worklet.js?v=797c6df`;
 				} else if (path.endsWith('.audio.position.worklet.js')) {
-					return `${loadPath}.audio.position.worklet.js?v=0bfcdd3`;
+					return `${loadPath}.audio.position.worklet.js?v=797c6df`;
 				} else if (path.endsWith('.js')) {
 					return `${loadPath}.js`;
 				} else if (path in gdext) {
 					return path;
 				} else if (path.endsWith('.side.wasm')) {
-					return `${loadPath}.side.wasm?v=0bfcdd3`;
+					return `${loadPath}.side.wasm?v=797c6df`;
 				} else if (path.endsWith('.wasm')) {
-					return `${loadPath}.wasm?v=0bfcdd3`;
+					return `${loadPath}.wasm?v=797c6df`;
 				}
 				return path;
 			},
@@ -666,7 +666,7 @@ const Engine = (function () {
 	Engine.load = function (basePath, size) {
 		if (loadPromise == null) {
 			loadPath = basePath;
-			loadPromise = preloader.loadPromise(`${loadPath}.wasm?v=0bfcdd3`, size, true);
+			loadPromise = preloader.loadPromise(`${loadPath}.wasm?v=797c6df`, size, true);
 			requestAnimationFrame(preloader.animateProgress);
 		}
 		return loadPromise;
@@ -820,7 +820,7 @@ const Engine = (function () {
 				this.config.update(override);
 				// Add main-pack argument.
 				const exe = this.config.executable;
-				const pack = this.config.mainPack || `${exe}.pck?v=0bfcdd3`;
+				const pack = this.config.mainPack || `${exe}.pck?v=797c6df`;
 				this.config.args = ['--main-pack', pack].concat(this.config.args);
 				// Start and init with execName as loadPath if not inited.
 				const me = this;
